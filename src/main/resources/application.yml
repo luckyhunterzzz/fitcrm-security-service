@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: fitcrm-security-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/${POSTGRES_DB}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: false
+    show-sql: false
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: health,info,metrics
+    endpoint:
+      health:
+        show-details: always
+server:
+  port: 8082
