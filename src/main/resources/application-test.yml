@@ -12,3 +12,12 @@ spring:
 
   flyway:
     enabled: false
+
+security:
+  jwt:
+    encryption-secret: test-secret-1234567890-very-long-for-aes-256
+    access-expiration-ms: 900000
+    refresh-expiration-ms: 2592000000
+
+user-service:
+  url: http://localhost:8081

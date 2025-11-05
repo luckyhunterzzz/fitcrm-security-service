@@ -28,5 +28,15 @@ spring:
     endpoint:
       health:
         show-details: always
+
+security:
+  jwt:
+    encryption-secret: ${JWT_ENCRYPTION_SECRET}
+    access-expiration-ms: 900000      # 15 минут
+    refresh-expiration-ms: 2592000000 # 30 дней
+
 server:
   port: 8082
+
+user-service:
+  url: http://localhost:8081
